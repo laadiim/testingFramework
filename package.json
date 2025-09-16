@@ -1,19 +1,34 @@
 {
   "name": "testingframework",
   "version": "1.0.0",
-  "description": "Testing framework for CGF API based on cypress",
-  "repository": {
-    "type": "git",
-    "url": "cgfTestingFramework"
-  },
-  "license": "ISC",
-  "author": "cakoral",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "update-schemas": "ts-node scripts/updateSchemas.ts",
+    "clean": "rimraf schemas types reports"
   },
-  "dependencies": {
-    "typescript": "^5.9.2"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laadiim/testingFramework.git"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.1",
+    "axios": "^1.6.7",
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "openapi-typescript": "^6.5.0",
+    "@apidevtools/swagger-parser": "^10.0.3",
+    "dotenv": "^16.4.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laadiim/testingFramework/issues"
+  },
+  "homepage": "https://github.com/laadiim/testingFramework#readme",
+  "description": ""
 }
