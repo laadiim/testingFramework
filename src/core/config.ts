@@ -7,6 +7,8 @@ interface ConfigOptions {
   userKey: string;
   invalidKey: string;
 
+  getSwagger: boolean;
+
   runAuth: boolean;
   runPerf: boolean;
   runFunc: boolean;
@@ -22,6 +24,8 @@ export class Config {
   userKey: string;
   invalidKey: string;
 
+  getSwagger: boolean;
+
   runAuth: boolean;
   runPerf: boolean;
   runFunc: boolean;
@@ -35,6 +39,8 @@ export class Config {
     this.adminKey = config.adminKey;
     this.userKey = config.userKey;
     this.invalidKey = config.invalidKey;
+
+    this.getSwagger = config.getSwagger;
 
     this.runAuth = config.runAuth;
     this.runPerf = config.runPerf;
