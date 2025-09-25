@@ -1,3 +1,6 @@
+import { ApiNode } from "../../generatedSchemas/nodes/ApiNode.ts";
+import { AbstractApiNode } from "./AbstractApiNode.ts";
+
 export interface RequestParamsInterface {
   [key: string]: string;
 }
@@ -30,3 +33,25 @@ export const BuildUrl = (path: string[], params: RequestParamsInterface): string
 
   return queryParams ? `${pathPart}?${queryParams}` : pathPart;
 };
+
+
+/**
+ * Builds the full API tree.
+ */
+export function buildApiTree(): ApiNode {
+  return new ApiNode();
+}
+
+/**
+ * Traverse tree and collect all endpoints.
+ */
+export function collectEndpoints(node: AbstractApiNode, list: AbstractApiNode[] = []): AbstractApiNode[] {
+  list.push(node);
+  for (const key of Object.keys(node)) {
+    const child = (node as any)[key];
+    if (child instanceof AbstractApiNode) {
+      collectEndpoints(child, list);
+    }
+  }
+  return list;
+}
